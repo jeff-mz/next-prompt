@@ -1,7 +1,7 @@
 import FeaturedPrompts from "@/components/FeaturedPrompts";
 const HomePage = () => {
   return (
-    <section className="container mx-auto py-8 px-2 xl:py-28">
+    <section className="container mx-auto py-8 px-2 md:py-16 2xl:py-20">
       <div className="flex align-items-center justify-center flex-col text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl xl:text-8xl xl:pt-16 dark:text-white leading-[1.3]">
           Discover & Share
