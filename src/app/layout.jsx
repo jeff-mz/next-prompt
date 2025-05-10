@@ -1,8 +1,9 @@
-import { Suspense } from "react";
-import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import { Suspense } from "react";
 import Layout from "@/components/Layout";
+import { Open_Sans } from "next/font/google";
 import AuthProvider from "@/components/AuthProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const open_sans = Open_Sans({ subsets: ["latin"] });
 
@@ -20,7 +21,10 @@ export default function RootLayout({ children }) {
       <body className={`${open_sans.className}  antialiased`}>
         <AuthProvider>
           <Suspense fallback={<div>Loading...</div>}>
-            <Layout>{children}</Layout>
+            <Layout>
+              {children}
+              <SpeedInsights />
+            </Layout>
           </Suspense>
         </AuthProvider>
       </body>
