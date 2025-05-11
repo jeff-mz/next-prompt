@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import { Open_Sans } from "next/font/google";
 import AuthProvider from "@/components/AuthProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const open_sans = Open_Sans({ subsets: ["latin"] });
 
@@ -18,6 +19,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* this script prevent flashing or it apply the theme after SSR is DONE */}
+      <head>
+        <Script id="theme-script" strategy="beforeInteractive">
+          {`
+            (function() {
+              try {
+                const theme = localStorage.getItem('theme') || 'light';
+                document.body.classList.add(theme);
+              } catch (e) {
+                document.body.classList.add('light');
+              }
+            })();
+          `}
+        </Script>
+      </head>
       <body className={`${open_sans.className}  antialiased`}>
         <AuthProvider>
           <Suspense
