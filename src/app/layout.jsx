@@ -20,7 +20,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${open_sans.className}  antialiased`}>
         <AuthProvider>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <div className="bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-50 min-w-full min-h-screen p-8">
+                Loading...
+              </div>
+            }
+          >
             <Layout>
               {children}
               <SpeedInsights />
