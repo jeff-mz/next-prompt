@@ -10,19 +10,16 @@ const Layout = ({ children }) => {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  } else {
-    return (
-      <ThemeProvider>
-        <main className="bg-slate-100 dark:bg-slate-900">
-          <Header />
-          {children}
-          <Footer />
-        </main>
-      </ThemeProvider>
-    );
-  }
+  if (!mounted) return null;
+  return (
+    <ThemeProvider>
+      <main className="bg-slate-100 dark:bg-slate-900">
+        <Header />
+        {children}
+        <Footer />
+      </main>
+    </ThemeProvider>
+  );
 };
 
 export default Layout;
