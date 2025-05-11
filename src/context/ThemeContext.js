@@ -4,10 +4,10 @@ import { createContext, useContext, useState, useEffect } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const savedTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(savedTheme || "light");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark" || savedTheme === "light") {
       setTheme(savedTheme);
       document.body.classList.add(savedTheme);
