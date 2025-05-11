@@ -7,8 +7,10 @@ import {
   LoginLink,
   useKindeBrowserClient,
 } from "@kinde-oss/kinde-auth-nextjs";
+import { useTheme } from "@/context/ThemeContext";
 
 const Header = () => {
+  const { theme, setTheme } = useTheme();
   const [showDropdown, setShowDropdown] = useState(false);
   const { isAuthenticated, user } = useKindeBrowserClient();
 
@@ -27,13 +29,29 @@ const Header = () => {
   return (
     <header className="shadow-md bg-white dark:bg-gray-800 dark:shadow-gray-900">
       <nav className="flex items-center justify-between mx-auto max-w-7xl px-4 py-3 sm:px-6 md:px-8 lg:py-4">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-lg font-bold text-gray-900 dark:text-white sm:text-xl md:text-2xl"
-        >
-          NEXT PROMPT
-        </Link>
+        <div className="flex items-center gap-3">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="text-lg font-bold text-gray-900 dark:text-white sm:text-xl md:text-2xl"
+          >
+            NEXT PROMPT
+          </Link>
+
+          {/* theme toggle */}
+          <button
+            className=""
+            onClick={() => {
+              const newTheme = theme === "light" ? "dark" : "light";
+              setTheme(newTheme);
+              document.body.classList.remove("light", "dark");
+              document.body.classList.add(newTheme);
+              localStorage.setItem("theme", newTheme);
+            }}
+          >
+            {theme === "light" ? "🌙" : "🔆"}
+          </button>
+        </div>
 
         {/* Auth Section */}
         {isAuthenticated ? (

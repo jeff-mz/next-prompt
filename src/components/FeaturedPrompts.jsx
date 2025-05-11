@@ -67,7 +67,7 @@ const FeaturedPrompts = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 dark:text-white">
+      <h2 className="text-3xl md:text-4xl font-bold mb-8 dark:text-slate-100 text-slate-800">
         🔥 Featured Prompts
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
