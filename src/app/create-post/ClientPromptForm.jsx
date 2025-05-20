@@ -44,8 +44,8 @@ const ClientPromptForm = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 pt-10 bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-5xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md p-6 py-16">
+    <div className="min-h-screen px-4 py-4 bg-white dark:bg-gray-900 transition-colors">
+      <div className="max-w-5xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md p-6 py-8">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
           Create a New Prompt
         </h1>
@@ -79,13 +79,13 @@ const ClientPromptForm = () => {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 md:py-4 md:text-2xl"
+          className="w-full mb-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-colors duration-200 disabled:opacity-50 md:py-4 md:text-2xl"
         >
           {loading ? "Sending..." : "Create Prompt"}
         </button>
 
         {message && (
-          <p className="mt-4 text-sm text-center text-red-500 dark:text-red-400">
+          <p className="my-4 text-sm text-center text-red-500 dark:text-red-400">
             {message}
           </p>
         )}
