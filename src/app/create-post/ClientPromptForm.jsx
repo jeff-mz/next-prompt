@@ -44,8 +44,8 @@ const ClientPromptForm = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 pt-10 pb-32 bg-white dark:bg-gray-900 transition-colors">
-      <div className="max-w-5xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md p-6">
+    <div className="min-h-screen px-4 pt-10 bg-white dark:bg-gray-900 transition-colors">
+      <div className="max-w-5xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md p-6 py-16">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
           Create a New Prompt
         </h1>
