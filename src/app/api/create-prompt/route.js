@@ -29,7 +29,7 @@ export async function POST(req) {
     const { error } = await supabase.from("prompts").insert({
       title,
       content,
-      user_id: user.id, // must match your Supabase schema
+      user_id: user.id,
     });
 
     if (error) {
