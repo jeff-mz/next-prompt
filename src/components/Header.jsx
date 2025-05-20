@@ -40,7 +40,6 @@ const Header = () => {
 
           {/* theme toggle */}
           <button
-            className=""
             onClick={() => {
               const newTheme = theme === "light" ? "dark" : "light";
               setTheme(newTheme);
