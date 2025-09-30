@@ -1,4 +1,5 @@
 import FeaturedPrompts from "@/components/FeaturedPrompts";
+import PromptGuide from "@/components/PromptGuide";
 const HomePage = () => {
   return (
     <section className="container mx-auto py-8 px-2 md:py-16 2xl:py-20">
@@ -18,6 +19,7 @@ const HomePage = () => {
       </div>
       <div className="my-8 xl:mt-16">
         <FeaturedPrompts />
+        <PromptGuide />
       </div>
     </section>
   );

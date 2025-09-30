@@ -1,8 +1,8 @@
 import "./globals.css";
-import { Suspense } from "react";
 import Layout from "@/components/Layout";
-import { Open_Sans } from "next/font/google";
 import AuthProvider from "@/components/AuthProvider";
+import { Suspense } from "react";
+import { Open_Sans } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
