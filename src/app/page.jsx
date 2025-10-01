@@ -3,11 +3,13 @@ import PromptGuide from "@/components/PromptGuide";
 import FeaturedPrompts from "@/components/FeaturedPrompts";
 import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
+import GenerateInput from "@/components/GenerateInput";
 const HomePage = () => {
   return (
     <>
       <Hero />
       <PromptGuide />
+      <GenerateInput />
       <FeaturedPrompts />
       <WhyUs />
       <FAQ />
