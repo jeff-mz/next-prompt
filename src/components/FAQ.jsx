@@ -31,25 +31,25 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16">
+    <section className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-8 dark:text-white">
           Frequently Asked Questions
         </h2>
         <dl className="space-y-4">
           {faqs.map((faq, index) => (
             <Disclosure key={index}>
               {({ open }) => (
-                <div className="border border-gray-200 rounded-lg p-4">
-                  <DisclosureButton className="flex w-full justify-between items-center text-left text-lg font-medium text-gray-900">
+                <div className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm dark:bg-gray-800 dark:border-gray-700 transition-colors">
+                  <DisclosureButton className="flex w-full justify-between items-center text-left text-lg font-medium text-gray-900 dark:text-gray-100">
                     {faq.question}
                     <FaChevronDown
-                      className={`h-5 w-5 text-gray-500 transition-transform ${
+                      className={`h-5 w-5 text-gray-500 dark:text-gray-400 transition-transform ${
                         open ? "rotate-180" : ""
                       }`}
                     />
                   </DisclosureButton>
-                  <DisclosurePanel className="mt-2 text-gray-600">
+                  <DisclosurePanel className="mt-2 text-gray-600 dark:text-gray-300">
                     {faq.answer}
                   </DisclosurePanel>
                 </div>

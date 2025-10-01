@@ -66,16 +66,16 @@ const FeaturedPrompts = () => {
   };
 
   return (
-    <section className="w-full px-4 py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <section className="w-full px-4 py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 dark:text-slate-100 text-slate-800 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-800 dark:text-slate-100 text-center">
           🔥 Featured Prompts
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {mockPrompts.map((prompt) => (
             <div
               key={prompt.id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm flex flex-col"
+              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm flex flex-col hover:shadow-md transition-shadow"
             >
               <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-gray-900 rounded-t-lg">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
