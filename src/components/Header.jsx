@@ -27,7 +27,7 @@ const Header = () => {
   }, [isAuthenticated]);
 
   return (
-    <header className="shadow-md bg-white dark:bg-gray-800 dark:shadow-gray-900">
+    <header className="shadow-md border-b border-gray-200 dark:bg-gray-800 dark:shadow-gray-900">
       <nav className="flex items-center justify-between mx-auto max-w-7xl px-4 py-3 sm:px-6 md:px-8 lg:py-4">
         <div className="flex items-center gap-3">
           {/* Logo */}
@@ -132,7 +132,7 @@ const Header = () => {
             <LoginLink className="rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-800 transition hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 sm:px-5 md:text-base">
               Sign In
             </LoginLink>
-            <RegisterLink className="rounded-full bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700 dark:bg-indigo-700 dark:hover:bg-indigo-600 sm:px-5 md:text-base">
+            <RegisterLink className="rounded-full bg-[#4F46E5] px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700 dark:[#4F46E5] dark:hover:bg-indigo-600 sm:px-5 md:text-base">
               Sign Up
             </RegisterLink>
           </div>

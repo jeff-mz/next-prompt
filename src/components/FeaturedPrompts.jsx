@@ -66,72 +66,74 @@ const FeaturedPrompts = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8 dark:text-slate-100 text-slate-800">
-        🔥 Featured Prompts
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {mockPrompts.map((prompt) => (
-          <div
-            key={prompt.id}
-            className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm flex flex-col"
-          >
-            <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-gray-900 rounded-t-lg">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {prompt.title}
-              </h3>
-              {/* copy button */}
-              <button
-                onClick={() => handleCopy(prompt.id, prompt.content)}
-                className="flex items-center gap-2 text-xs font-medium rounded-lg border px-3 py-1.5 
+    <section className="w-full px-4 py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 dark:text-slate-100 text-slate-800">
+          🔥 Featured Prompts
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {mockPrompts.map((prompt) => (
+            <div
+              key={prompt.id}
+              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm flex flex-col"
+            >
+              <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-gray-900 rounded-t-lg">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {prompt.title}
+                </h3>
+                {/* copy button */}
+                <button
+                  onClick={() => handleCopy(prompt.id, prompt.content)}
+                  className="flex items-center gap-2 text-xs font-medium rounded-lg border px-3 py-1.5 
              border-gray-300 dark:border-gray-600 
              bg-white dark:bg-gray-800 
              text-gray-700 dark:text-gray-200 
              hover:bg-gray-100 dark:hover:bg-gray-700 
              transition-colors duration-150"
-              >
-                {copiedId === prompt.id ? (
-                  <>
-                    <svg
-                      className="w-4 h-4 md:w-5 md:h-5 text-green-500"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="md:text-base">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <svg
-                      className="w-4 h-4 md:w-5 md:h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8 16h8M8 12h8m-6 8h6a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                    <span className="md:text-base">Copy</span>
-                  </>
-                )}
-              </button>
+                >
+                  {copiedId === prompt.id ? (
+                    <>
+                      <svg
+                        className="w-4 h-4 md:w-5 md:h-5 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                      <span className="md:text-base">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg
+                        className="w-4 h-4 md:w-5 md:h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M8 16h8M8 12h8m-6 8h6a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                      <span className="md:text-base">Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+              <p className="p-4 text-base text-gray-700 dark:text-gray-300">
+                {prompt.content}
+              </p>
             </div>
-            <p className="p-4 text-base text-gray-700 dark:text-gray-300">
-              {prompt.content}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import { SiRobotframework } from "react-icons/si";
 const Hero = () => {
   return (
-    <section className="container mx-auto py-8 px-2 md:py-16 2xl:py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section className="w-full mx-auto py-8 px-2 md:py-16 2xl:py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       <div className="flex align-items-center justify-center flex-col text-center">
         <SiRobotframework className="mx-auto h-20 w-20 text-[#4F46E5] animate-(--my-animation)" />
         <h1 className="mb-8 text-4xl font-bold tracking-tight text-indigo-900 md:text-5xl lg:text-5xl xl:text-7xl xl:pt-8 dark:text-white leading-[1.3]">

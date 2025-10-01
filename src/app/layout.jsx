@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${open_sans.className}  antialiased`}>
+      <body className={`${open_sans.className} antialiased`}>
         <AuthProvider>
           <Suspense
             fallback={
