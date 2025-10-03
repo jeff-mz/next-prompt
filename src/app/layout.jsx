@@ -33,6 +33,7 @@ export default function RootLayout({ children }) {
             })();
           `}
         </Script>
+        <Script src="https://js.puter.com/v2/" strategy="beforeInteractive" />
       </head>
       <body className={`${open_sans.className} antialiased`}>
         <AuthProvider>
