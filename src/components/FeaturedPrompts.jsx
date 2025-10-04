@@ -1,63 +1,30 @@
 "use client";
 
-import { useState } from "react";
-
-const mockPrompts = [
-  {
-    id: "1",
-    title: "Creative Story Starter",
-    content:
-      "Write a story that begins with: 'The sky cracked open like a broken mirror...'",
-  },
-  {
-    id: "2",
-    title: "Marketing Copy Prompt",
-    content: "Generate a catchy headline for a new eco-friendly shoe brand.",
-  },
-  {
-    id: "3",
-    title: "Coding Assistant",
-    content: "Explain what closures are in JavaScript with an example.",
-  },
-  {
-    id: "4",
-    title: "Mindfulness Prompt",
-    content: "List 5 things you're grateful for today and why.",
-  },
-  {
-    id: "5",
-    title: "Resume Summary Generator",
-    content:
-      "Write a professional summary for a resume of a frontend developer with 2 years of experience in React.js.",
-  },
-  {
-    id: "6",
-    title: "Startup Pitch Generator",
-    content:
-      "Create a 2-sentence startup pitch for an app that helps users reduce screen time.",
-  },
-  {
-    id: "7",
-    title: "Book Summary Helper",
-    content:
-      "Summarize the key takeaways from the book 'Atomic Habits' by James Clear in bullet points.",
-  },
-  {
-    id: "8",
-    title: "Interview Practice",
-    content:
-      "Act as a hiring manager and ask me three challenging behavioral questions for a software engineering position.",
-  },
-  {
-    id: "9",
-    title: "Blog Idea Generator",
-    content:
-      "Suggest 5 blog post ideas for a personal development blog targeting millennials.",
-  },
-];
+import { useEffect, useState } from "react";
+import { FaCopy, FaCheck, FaSpinner } from "react-icons/fa6";
 
 const FeaturedPrompts = () => {
+  const [prompts, setPrompts] = useState([]);
   const [copiedId, setCopiedId] = useState(null);
+
+  useEffect(() => {
+    const featuredPrompts = async () => {
+      try {
+        const result = await window.puter.ai.chat(`
+          Return 9 trending AI prompts as a JSON array.
+          Each object should include:
+          { "id": number, "title": string, "content": string }.
+        `);
+
+        const data = JSON.parse(result.message.content);
+        setPrompts(data);
+      } catch (error) {
+        console.error("Error fetching prompts:", error);
+      }
+    };
+
+    featuredPrompts();
+  }, []);
 
   const handleCopy = (id, text) => {
     navigator.clipboard.writeText(text);
@@ -68,72 +35,56 @@ const FeaturedPrompts = () => {
   return (
     <section className="w-full px-4 py-16 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-slate-800 dark:text-slate-100 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-slate-800 dark:text-slate-100 text-center">
           🔥 Featured Prompts
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mockPrompts.map((prompt) => (
-            <div
-              key={prompt.id}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm flex flex-col hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-gray-900 rounded-t-lg">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {prompt.title}
-                </h3>
-                {/* copy button */}
-                <button
-                  onClick={() => handleCopy(prompt.id, prompt.content)}
-                  className="flex items-center gap-2 text-xs font-medium rounded-lg border px-3 py-1.5 
-             border-gray-300 dark:border-gray-600 
-             bg-white dark:bg-gray-800 
-             text-gray-700 dark:text-gray-200 
-             hover:bg-gray-100 dark:hover:bg-gray-700 
-             transition-colors duration-150"
-                >
-                  {copiedId === prompt.id ? (
-                    <>
-                      <svg
-                        className="w-4 h-4 md:w-5 md:h-5 text-green-500"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="md:text-base">Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <svg
-                        className="w-4 h-4 md:w-5 md:h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M8 16h8M8 12h8m-6 8h6a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span className="md:text-base">Copy</span>
-                    </>
-                  )}
-                </button>
+
+        {prompts.length === 0 ? (
+          <div className="flex justify-center py-20">
+            <FaSpinner className="text-4xl sm:text-6xl text-indigo-500 animate-spin" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {prompts.map((prompt) => (
+              <div
+                key={prompt.id}
+                className="flex flex-col bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+              >
+                <div className="p-6 md:p-8 flex flex-col justify-between h-full">
+                  {/* card header */}
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-white line-clamp-1">
+                      {prompt.title}
+                    </h3>
+                  </div>
+
+                  {/* card content */}
+                  <p className="mt-2 text-gray-600 dark:text-neutral-400 leading-relaxed">
+                    {prompt.content}
+                  </p>
+
+                  {/* copy btn */}
+                  <button
+                    onClick={() => handleCopy(prompt.id, prompt.content)}
+                    className="mt-6 inline-flex items-center justify-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-700 rounded-lg px-3 py-2 hover:bg-indigo-50 dark:hover:bg-indigo-800/50 transition-colors"
+                  >
+                    {copiedId === prompt.id ? (
+                      <>
+                        <FaCheck className="text-green-500" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <FaCopy />
+                        Copy to clipboard
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
-              <p className="p-4 text-base text-gray-700 dark:text-gray-300">
-                {prompt.content}
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
