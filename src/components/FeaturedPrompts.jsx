@@ -13,7 +13,7 @@ const FeaturedPrompts = () => {
         const result = await window.puter.ai.chat(`
           Return 9 trending AI prompts as a JSON array.
           Each object should include:
-          { "id": number, "title": string, "content": string }.
+          { "id": number, "title": string, "content": string ,"topic": string}.
         `);
 
         const data = JSON.parse(result.message.content);
@@ -52,7 +52,10 @@ const FeaturedPrompts = () => {
               >
                 <div className="p-6 md:p-8 flex flex-col justify-between h-full">
                   {/* card header */}
-                  <div className="flex items-start justify-between mb-3">
+                  <div className="flex flex-col items-start justify-between mb-3">
+                    <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-800/30 dark:text-blue-500 my-2">
+                      {prompt.topic}
+                    </span>
                     <h3 className="text-lg font-bold text-gray-800 dark:text-white line-clamp-1">
                       {prompt.title}
                     </h3>

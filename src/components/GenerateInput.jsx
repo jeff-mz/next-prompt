@@ -75,7 +75,7 @@ const GenerateInput = () => {
           </p>
         </Field>
 
-        {/* Button */}
+        {/* Generate btn */}
         <div className="mt-4">
           {status === "loading" ? (
             <button
@@ -98,7 +98,7 @@ const GenerateInput = () => {
           )}
         </div>
 
-        {/* Status */}
+        {/*status */}
         {status === "resolved" && (
           <p className="mt-6 text-left text-gray-700 dark:text-gray-300">
             Enhanced Prompt:
@@ -117,12 +117,14 @@ const GenerateInput = () => {
               {prompt}
             </p>
 
-            {/*buttons */}
+            {/* action btns */}
             <div className="flex justify-center gap-6 border-t border-gray-200 dark:border-gray-700 pt-4">
               {/* copy */}
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                className={`flex items-center gap-2 ${
+                  !copied ? "text-gray-700" : "text-indigo-600"
+                } dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors`}
               >
                 <FaRegCopy className="h-5 w-5" />
                 <span>{copied ? "Copied!" : "Copy"}</span>
