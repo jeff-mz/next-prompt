@@ -1,9 +1,9 @@
 import "./globals.css";
 import Layout from "@/components/Layout";
 import AuthProvider from "@/components/AuthProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 import { Open_Sans } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 
 const open_sans = Open_Sans({ subsets: ["latin"] });
