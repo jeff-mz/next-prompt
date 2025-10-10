@@ -30,6 +30,7 @@ const GenerateInput = () => {
         You are an expert prompt engineer.
         Your task is to take the following description and rewrite it into a clear, detailed, and professional AI prompt.
         The prompt should be actionable, unambiguous, and optimized for use with large language models like GPT, Claude, or Gemini.
+        prompt should be written in the same language as description or input 
         Description: ${description}
         Now generate the enhanced professional prompt:
       `);
