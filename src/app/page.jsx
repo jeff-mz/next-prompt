@@ -8,8 +8,8 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <PromptGuide />
       <GenerateInput />
+      <PromptGuide />
       <FeaturedPrompts />
       <WhyUs />
       <FAQ />
