@@ -27,15 +27,20 @@ const GenerateInput = () => {
     setPrompt("");
     try {
       const result = await window.puter.ai.chat(`
-        You are an expert prompt engineer.
-        Your task is to take the following description and rewrite it into a clear, detailed, and professional AI prompt.
-        The prompt should be actionable, unambiguous, and optimized for use with large language models like GPT, Claude, or Gemini.
-        prompt should be written in the same language as description or input 
-        Description: ${description}
-        Now generate the enhanced professional prompt:
-      `);
+        You are an expert AI prompt engineer.
+        Your task is to take the following description and transform it into a clear, detailed, and professional AI prompt.
+        The final prompt must be:
+        - Actionable and specific
+        - Unambiguous and goal-oriented
+        - Optimized for use with large language models (e.g., GPT, Claude, Gemini)
+        - Written in the same language as the input description (if the description is in Farsi, write the prompt in Farsi and same for other language)
+          Description:
+          ${description}
+          Now generate the enhanced, professional AI prompt:
+`);
       setPrompt(result.message.content);
       setStatus("resolved");
+      console.log(result);
     } catch (error) {
       console.error(error);
       setStatus("rejected");
